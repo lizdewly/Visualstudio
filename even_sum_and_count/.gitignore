@@ -2,3 +2,10 @@
 .env
 AGENTS.md
 # *.py (확장자가 py인 파일 모두)
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
