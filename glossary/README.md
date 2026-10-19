@@ -1,0 +1,47 @@
+# AI와 파이썬 코딩 학습 기록
+
+이 프로젝트에서 나눈 AI, 파이썬, 코딩 관련 질문과 답변을 모아 복습하는 공간입니다. 용어의 뜻뿐 아니라 사용 이유, 간단한 예제, 헷갈리기 쉬운 점도 함께 기록합니다.
+
+## 질문 목록
+
+제목을 클릭하면 해당 학습 문서를 볼 수 있습니다. 이 표는 문서 상단에 유지합니다.
+
+| 날짜 | 분류 | 질문과 답변 | 핵심 용어 |
+| --- | --- | --- | --- |
+| 2026-10-16 | AI, Python, Coding | [LangGraph 기본 개념](2026-10-16-langgraph.md) | LangGraph, 에이전트, State, Node, Edge, LangChain |
+| 2026-10-16 | Python, Coding | [주문 금액 계산 함수 정밀 분석](2026-10-16-python-order-function-review.md) | 함수, elif, NameError, 입력 검증, float, int, 쿠폰 |
+| 2026-10-16 | Python, Coding | [if not prompt.strip의 의미](2026-10-16-python-strip-not.md) | strip, not, 빈 문자열, 공백, 입력 검증 |
+| 2026-10-16 | Python, Coding | [ValueError와 KeyError의 차이](2026-10-16-python-valueerror-keyerror.md) | ValueError, KeyError, 예외, dict, int, get |
+| 2026-10-16 | Python, Coding | [이중 밑줄의 사용](2026-10-16-python-double-underscore.md) | __, dunder, 특수 메서드, 이름 맹글링, __name__ |
+| 2026-10-16 | Python, Coding | [파이썬에서 @의 활용](2026-10-16-python-at-symbol.md) | @, 데코레이터, 함수, 행렬 곱셈 |
+| 2026-10-16 | Python, Coding | [parameter와 argument의 차이](2026-10-16-python-parameter-argument.md) | 함수, 매개변수, 인자, 위치 인자, 키워드 인자 |
+| 2026-10-15 | Python, Coding | [set 집합 사용법](2026-10-15-python-set.md) | set, 중복 제거, 합집합, 교집합, 차집합 |
+| 2026-10-15 | Python, Coding | [sorted 함수 사용법](2026-10-15-python-sorted.md) | sorted, 정렬, reverse, key, sort |
+| 2026-10-15 | Python, Coding | [리스트 컴프리헨션 사용법](2026-10-15-python-list-comprehension.md) | list comprehension, 리스트, for, 조건 필터, 조건부 표현식 |
+| 2026-10-15 | Python, Coding | [zip 객체를 딕셔너리로 변환하기](2026-10-15-python-zip-dict.md) | zip, dict, 이터레이터, 소진, list |
+| 2026-10-15 | Python, Coding | [Smart FizzBuzz Analyzer 만들기](2026-10-15-python-fizzbuzz-analyzer.md) | FizzBuzz, for, if, elif, else, 나머지 연산자, 딕셔너리 |
+| 2026-10-15 | Python, Coding | [1부터 n까지 짝수의 합과 개수 구하기](2026-10-15-python-even-sum-count.md) | for, if, range, 나머지 연산자, 누적 합, 개수, 딕셔너리 |
+| 2026-10-15 | Python, Coding | [파이썬에서 객체란 무엇인가](2026-10-15-python-object.md) | 객체, 변수, 타입, 클래스, 메서드, 참조 |
+| 2026-10-15 | Python, Coding | [파이썬 삼항 연산자 사용법](2026-10-15-python-conditional-expression.md) | 삼항 연산자, 조건부 표현식, if, else |
+| 2026-10-15 | Python, Coding | [파이썬 딕셔너리: 자주 사용하는 상황별 정리](2026-10-15-python-dictionary.md) | 딕셔너리, dict, 키, 값, get, items, 빈도 계산, 그룹화 |
+| 2026-10-15 | Python, Coding | [파이썬 pop 메서드 사용법](2026-10-15-python-pop.md) | pop, 리스트, 딕셔너리, 삭제, 반환 |
+| 2026-10-15 | Python, Coding | [사용자 정지 여부와 역할에 따른 분기](2026-10-15-python-role-check.md) | 딕셔너리, if, elif, else, continue, break |
+| 2026-10-15 | Python, Coding | [array와 float의 의미](2026-10-15-python-array-float.md) | 배열, array, list, float, 부동소수점 |
+| 2026-10-15 | Python, Coding | [변수 이름 규칙](2026-10-15-python-variables.md) | 변수, 식별자, 숫자, 밑줄, 예약어 |
+
+## 변수
+
+| 학습 질문 | 바로가기 |
+| --- | --- |
+| 변수 이름으로 사용할 수 없는 것은 | [문제와 해설](2026-10-15-python-variables.md#질문) |
+
+## 기록 방식
+
+- 새로운 주제는 질문별 Markdown 문서로 저장합니다. 파일명은 `YYYY-MM-DD-짧은-주제.md` 형식입니다.
+- 같은 주제의 후속 질문은 기존 문서에 이어 적습니다.
+- 분류는 `AI`, `Python`, `Coding`을 사용합니다.
+- 문서 형식은 [질문과 답변 템플릿](TEMPLATE.md)을 참고합니다. 필요 없는 선택 항목은 생략합니다.
+- 날짜는 한국 시간 기준입니다.
+- 질문 목록 표는 이 안내 문서 상단에 유지하고, 학습 문서의 내용별 목차도 상단에 표로 작성합니다. 제목을 클릭하면 해당 문서 또는 내용으로 이동하도록 연결합니다.
+
+이 프로젝트에서 답변할 때 루트의 `AGENTS.md` 지침에 따라 기록을 갱신합니다. 다른 프로젝트나 별도 대화의 내용은 자동으로 가져오지 않습니다.

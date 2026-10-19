@@ -1,0 +1,4 @@
+.vscode
+.env
+AGENTS.md
+# *.py (확장자가 py인 파일 모두)
