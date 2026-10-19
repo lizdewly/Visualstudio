@@ -8,6 +8,7 @@
 
 | 날짜 | 분류 | 질문과 답변 | 핵심 용어 |
 | --- | --- | --- | --- |
+| 2026-10-19 | Coding | [Git에서 폴더 또는 브랜치 삭제하기](2026-10-19-git-remove-folder-branch.md) | Git, git rm, 폴더, 브랜치, push |
 | 2026-10-19 | Coding | [Commit & Push 후 GitHub에 파일이 보이지 않는 이유](2026-10-19-git-commit-push-missing.md) | Git, stage, commit, push, COMMIT_EDITMSG |
 | 2026-10-19 | Coding | [Git 저장소를 다른 로컬 드라이브에 내려받기](2026-10-19-git-clone-local-drive.md) | Git, 저장소, clone, 로컬 경로, pull |
 | 2026-10-16 | AI, Python, Coding | [LangGraph 기본 개념](2026-10-16-langgraph.md) | LangGraph, 에이전트, State, Node, Edge, LangChain |
