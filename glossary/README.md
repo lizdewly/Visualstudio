@@ -8,6 +8,16 @@
 
 | 날짜 | 분류 | 질문과 답변 | 핵심 용어 |
 | --- | --- | --- | --- |
+| 2026-10-21 | Python, Coding | [Pydantic Field로 입력 조건 정하기](2026-10-21-pydantic-field.md) | Pydantic, Field, 입력 검증, ge, le, pattern |
+| 2026-10-21 | Python, Coding | [bool의 의미](2026-10-21-python-bool.md) | bool, 불리언, True, False, 타입 힌트 |
+| 2026-10-20 | AI, Python, Coding | [부트캠프 학습 계획과 실시간 로그 대시보드](2026-10-20-realtime-log-dashboard.md) | 로그, FastAPI, Supabase, Redis, Streamlit, API, 폴링 |
+| 2026-10-20 | Python, Coding | [FastAPI로 두 수 사칙연산 계산기 만들기](2026-10-20-fastapi-calculator.md) | FastAPI, Uvicorn, HTML, CSS, Decimal, 입력 검증 |
+| 2026-10-20 | Coding | [컴퓨터공학과의 입학 난도와 전공·직업 진입 장벽](2026-10-20-cs-major-barriers.md) | 컴퓨터공학, 입시, 경제학, 법학, 의학, 진입 장벽 |
+| 2026-10-20 | Coding, Python | [CMD와 PowerShell의 차이](2026-10-20-cmd-powershell.md) | CMD, PowerShell, 셸, 터미널, 환경 변수, 가상 환경 |
+| 2026-10-20 | Python, Coding | [FastAPI 쿼리 매개변수로 검색과 페이지 나누기](2026-10-20-fastapi-query-filter.md) | Query, None, casefold, 필터, 슬라이싱, skip, limit |
+| 2026-10-20 | Python, Coding | [FastAPI 경로 매개변수와 입력 검증](2026-10-20-fastapi-path-validation.md) | FastAPI, Annotated, Path, ge, HTTPException, 404, 422 |
+| 2026-10-20 | Coding | [404 Not Found의 의미](2026-10-20-http-404.md) | HTTP, 404, Not Found, URL, 서버 |
+| 2026-10-20 | Python, Coding | [.venv와 파이썬 가상 환경](2026-10-20-python-venv.md) | .venv, venv, 가상 환경, pip, 패키지 |
 | 2026-10-19 | Coding | [Commit & Push 후 GitHub에 파일이 보이지 않는 이유](2026-10-19-git-commit-push-missing.md) | Git, stage, commit, push, COMMIT_EDITMSG |
 | 2026-10-19 | Coding | [Git 저장소를 다른 로컬 드라이브에 내려받기](2026-10-19-git-clone-local-drive.md) | Git, 저장소, clone, 로컬 경로, pull |
 | 2026-10-16 | AI, Python, Coding | [LangGraph 기본 개념](2026-10-16-langgraph.md) | LangGraph, 에이전트, State, Node, Edge, LangChain |

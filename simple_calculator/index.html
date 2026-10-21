@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>두 수 계산기</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">SIMPLE CALCULATOR</p>
+      <h1>두 수, 네 가지 계산.</h1>
+      <p>숫자 두 개를 입력하면 사칙연산 결과를 한 번에 보여드려요.</p>
+    </header>
+    <form action="/calculate" method="get">
+      <div class="inputs">
+        <div>
+          <label for="first">첫 번째 숫자</label>
+          <input id="first" name="first" type="text" inputmode="decimal"
+                 maxlength="24" required value="$first" placeholder="예: 12.5" aria-describedby="hint">
+        </div>
+        <div>
+          <label for="second">두 번째 숫자</label>
+          <input id="second" name="second" type="text" inputmode="decimal"
+                 maxlength="24" required value="$second" placeholder="예: 2" aria-describedby="hint">
+        </div>
+      </div>
+      <p id="hint" class="hint">음수·소수도 가능해요. 정수부 12자리, 소수부 10자리까지 입력하세요.<br>소수점은 점(.)을 사용하고 쉼표와 지수 표기는 제외해 주세요.</p>
+      $error
+      <div class="actions">
+        <button type="submit">계산하기 <span aria-hidden="true">→</span></button>
+        <a href="/">초기화</a>
+      </div>
+    </form>
+    $results
+    <footer>뺄셈과 나눗셈은 첫 번째 숫자를 기준으로 계산합니다.<br>순환소수 등 긴 나눗셈 결과는 유효숫자 5자리에서 반올림합니다.</footer>
+  </main>
+</body>
+</html>

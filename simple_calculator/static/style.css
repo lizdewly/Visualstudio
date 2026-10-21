@@ -1,0 +1,30 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #f4f6fa; color: #202d40; font-family: "Malgun Gothic", sans-serif; line-height: 1.6; }
+main { width: min(760px, 100%); margin: 64px auto; padding: 0 24px; }
+.eyebrow { color: #315bc7; font-size: 12px; font-weight: 700; letter-spacing: 2px; }
+h1 { margin: 12px 0; font-size: clamp(28px, 5vw, 40px); letter-spacing: -1.5px; }
+header > p:last-child, .hint, footer { color: #566477; }
+form { margin: 32px 0; padding: 28px; background: white; border: 1px solid #dce2ec; border-radius: 20px; }
+.inputs, .results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+label { display: block; margin-bottom: 10px; font-size: 14px; font-weight: 700; }
+input { width: 100%; padding: 14px; border: 1px solid #aab6c8; border-radius: 10px; background: #fcfdff; color: #202d40; font: inherit; font-size: 20px; }
+input:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid #315bc7; outline-offset: 3px; }
+.hint { font-size: 12px; margin: 16px 0 24px; }
+.actions { display: flex; align-items: center; gap: 24px; }
+button { border: 0; border-radius: 10px; background: #315bc7; color: white; padding: 13px 24px; font: inherit; font-weight: 700; cursor: pointer; }
+button:hover { background: #2346a1; }
+button span { margin-left: 24px; }
+a { color: #435775; }
+h2 { font-size: 20px; }
+.result { background: white; border: 1px solid #dce2ec; border-radius: 16px; padding: 20px; min-width: 0; }
+h3 { display: flex; justify-content: space-between; margin: 0; font-size: 14px; }
+h3 span { color: #315bc7; font-size: 20px; }
+.expression { color: #566477; font-size: 13px; overflow-wrap: anywhere; }
+.value { margin: 10px 0 0; font-size: 24px; font-weight: 700; overflow-wrap: anywhere; }
+.error { padding: 12px; background: #fff0f0; color: #a02020; border-radius: 8px; }
+footer { margin-top: 28px; font-size: 12px; }
+@media (max-width: 520px) {
+  main { margin: 28px auto; padding: 0 16px; }
+  form { padding: 20px; }
+  .inputs, .results { grid-template-columns: 1fr; }
+}
