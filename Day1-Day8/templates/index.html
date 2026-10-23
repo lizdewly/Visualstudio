@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>작은 방명록</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#write">글 쓰기로 건너뛰기</a>
+  <main class="page">
+    <header class="page-header">
+      <p class="eyebrow">잠깐 머물다 남기는 이야기</p>
+      <h1>작은 방명록<span aria-hidden="true">.</span></h1>
+      <p class="intro">오늘의 기분, 짧은 안부, 하고 싶은 말.<br>이곳에 당신의 한 줄을 남겨 주세요.</p>
+    </header>
+
+    $notice
+
+    <section class="write-panel" id="write" aria-labelledby="write-title">
+      <h2 id="write-title">인사 남기기</h2>
+      <form action="/entries" method="post" accept-charset="UTF-8">
+        <label for="name">이름 <span class="hint">최대 20자</span></label>
+        <input id="name" name="name" type="text" maxlength="20" required
+               autocomplete="nickname" placeholder="어떤 이름으로 남길까요?" value="$name">
+        <label for="message">남기고 싶은 말 <span class="hint">최대 500자</span></label>
+        <textarea id="message" name="message" rows="5" maxlength="500" required
+                  aria-describedby="privacy-note" placeholder="반가워요. 편하게 인사를 남겨 주세요.">$message</textarea>
+        <div class="form-bottom">
+          <p id="privacy-note">작성한 글은 누구나 볼 수 있어요.<br>연락처와 비밀번호는 적지 마세요.</p>
+          <button type="submit">글 남기기 <span aria-hidden="true">↗</span></button>
+        </div>
+      </form>
+    </section>
+
+    <section id="entries" class="entries" aria-labelledby="entries-title">
+      <div class="section-heading">
+        <h2 id="entries-title">남겨진 이야기 <span class="count">$total</span></h2>
+        <span class="hint">최근에 남긴 글부터</span>
+      </div>
+      $entries
+      <nav class="pagination" aria-label="방명록 페이지">$pagination</nav>
+    </section>
+    <footer>작은 인사가 모이는 곳 <span aria-hidden="true">·</span> 최대 $max_entries개의 이야기</footer>
+  </main>
+</body>
+</html>
