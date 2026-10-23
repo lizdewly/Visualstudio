@@ -4,21 +4,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>작은 방명록</title>
-  <link rel="stylesheet" href="/static/style.css">
+  <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" href="/static/style.css?v=20261023-dark">
 </head>
 <body>
   <a class="skip-link" href="#write">글 쓰기로 건너뛰기</a>
-  <main class="page">
-    <header class="page-header">
-      <p class="eyebrow">잠깐 머물다 남기는 이야기</p>
-      <h1>작은 방명록<span aria-hidden="true">.</span></h1>
-      <p class="intro">오늘의 기분, 짧은 안부, 하고 싶은 말.<br>이곳에 당신의 한 줄을 남겨 주세요.</p>
-    </header>
+  <header class="site-header">
+    <a class="wordmark" href="/" aria-label="작은 방명록 홈"><span class="signature" aria-hidden="true"><i></i><i></i><i></i></span>GUESTBOOK<span class="wordmark-ko">작은 방명록</span></a>
+    <nav class="site-nav" aria-label="주요 메뉴"><a href="#write">글 남기기 <span aria-hidden="true">↗</span></a><a href="#entries">남겨진 이야기</a></nav>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-image" src="/static/hero-motorsport.webp" alt="어두운 서킷 위에 놓인 검정 스포츠 쿠페" fetchpriority="high" width="1983" height="793">
+      <div class="hero-content">
+        <p class="eyebrow">YOUR WORDS. YOUR MARK.</p>
+        <h1 id="hero-title">LEAVE<br>YOUR MARK<span aria-hidden="true">.</span></h1>
+        <p class="intro">방문은 짧아도, 이야기는 남습니다.<br>당신의 오늘을 한 문장으로 남겨 주세요.</p>
+        <a class="outline-button hero-cta" href="#write">인사 남기기 <span aria-hidden="true">↗</span></a>
+      </div>
+      <span class="hero-caption" aria-hidden="true">A MOMENT HERE. A STORY THAT STAYS.</span>
+    </section>
 
-    $notice
+    <div class="page">
+      $notice
+      <div class="content-grid">
 
     <section class="write-panel" id="write" aria-labelledby="write-title">
-      <h2 id="write-title">인사 남기기</h2>
+      <div class="section-label"><span>01 / WRITE A NOTE</span><span aria-hidden="true">↗</span></div>
+      <h2 id="write-title">당신의 한마디.</h2>
+      <p class="section-description">짧은 안부도, 오래 남는 이야기가 됩니다.</p>
       <form action="/entries" method="post" accept-charset="UTF-8">
         <label for="name">이름 <span class="hint">최대 20자</span></label>
         <input id="name" name="name" type="text" maxlength="20" required
@@ -28,20 +42,20 @@
                   aria-describedby="privacy-note" placeholder="반가워요. 편하게 인사를 남겨 주세요.">$message</textarea>
         <div class="form-bottom">
           <p id="privacy-note">작성한 글은 누구나 볼 수 있어요.<br>연락처와 비밀번호는 적지 마세요.</p>
-          <button type="submit">글 남기기 <span aria-hidden="true">↗</span></button>
+          <button class="outline-button" type="submit">글 남기기 <span aria-hidden="true">↗</span></button>
         </div>
       </form>
     </section>
 
     <section id="entries" class="entries" aria-labelledby="entries-title">
-      <div class="section-heading">
-        <h2 id="entries-title">남겨진 이야기 <span class="count">$total</span></h2>
-        <span class="hint">최근에 남긴 글부터</span>
-      </div>
+      <div class="section-label"><span>02 / THE STORIES</span><span class="hint">최신순</span></div>
+      <div class="section-heading"><h2 id="entries-title">남겨진 이야기<span class="count">$total</span></h2></div>
       $entries
       <nav class="pagination" aria-label="방명록 페이지">$pagination</nav>
     </section>
-    <footer>작은 인사가 모이는 곳 <span aria-hidden="true">·</span> 최대 $max_entries개의 이야기</footer>
+      </div>
+      <footer><div class="footer-brand">GUESTBOOK<span>작은 인사가 모이는 곳.</span></div><p>최대 $max_entries개의 이야기<br><span>YOUR WORDS. YOUR MARK.</span></p></footer>
+    </div>
   </main>
 </body>
 </html>

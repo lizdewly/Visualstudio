@@ -23,7 +23,7 @@ MAX_BODY_BYTES = 16 * 1024
 KOREA_TIME = timezone(timedelta(hours=9))
 PAGE_TEMPLATE = Template((BASE_DIR / "templates" / "index.html").read_text(encoding="utf-8"))
 HTML_HEADERS = {
-    "Content-Security-Policy": "default-src 'none'; style-src 'self'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'",
+    "Content-Security-Policy": "default-src 'none'; style-src 'self'; img-src 'self'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'",
     "X-Content-Type-Options": "nosniff",
     "Cache-Control": "no-store",
 }
