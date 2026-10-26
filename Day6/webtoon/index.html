@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183936">
+  <title>데이터 학교의 신입 개발자 — Day 6 학습 웹툰</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="story.js" defer></script>
+  <script src="reader.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#episodes">웹툰 본문으로</a>
+  <header class="toolbar">
+    <a class="brand" href="#top">DATA SCHOOL <span>DAY 06</span></a>
+    <div class="controls"><label for="chapter-select">회차</label><select id="chapter-select"><option value="top">표지</option></select><button id="type-toggle" type="button" aria-pressed="false">큰 글씨</button></div>
+    <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+  </header>
+  <main id="top">
+    <section class="cover" aria-labelledby="title">
+      <div class="cover-copy"><p class="eyebrow">PYDANTIC × FASTAPI · 전 7화</p><h1 id="title">데이터 학교의<br><em>신입 개발자</em></h1><p class="tagline">“그냥 저장하면 되는 줄 알았는데?!”</p><p class="intro">입력은 엉망, 수정은 아찔, 서버는 첫 출근.<br>신입 <b>하루</b>와 검사 로봇 <b>파이</b>의 학교 운영기.</p><a class="start" href="#ep1">1화부터 읽기 <span>↓</span></a></div>
+      <div class="cover-art" role="img" aria-label="노란 후드의 신입 개발자 하루와 민트색 검사 로봇 파이가 데이터 학교에서 만난다."></div>
+      <div class="cover-stamp">코드가<br>이야기가 되는 날</div>
+    </section>
+    <nav class="contents" aria-label="회차 목록"><p class="eyebrow">오늘의 연재</p><div id="chapter-links"></div><p class="reading-note">아래로 스크롤하며 읽으세요. 각 화의 ‘원작 코드’를 펼치면 학습 파일로 연결됩니다.</p></nav>
+    <div id="episodes"></div>
+    <section class="ending"><p class="eyebrow">EPILOGUE</p><h2>데이터는 이제,<br>제대로 입학한다.</h2><p>모양을 정하고 → 규칙을 검사하고 → 필요한 모습으로 내보내고 → API로 주고받는다.</p><p>하루의 첫 서비스는 작지만, 오늘 배운 흐름은 끝까지 이어진다.</p><a class="start" href="#top">처음으로 ↑</a></section>
+    <footer><p>2026.10.21 · Day_6의 실제 코드와 실습을 바탕으로 각색한 학습 웹툰.</p><p>삽화는 AI 생성, 대사와 코드 표시는 별도 텍스트입니다. 장면의 숫자·화살표 등 학습 정보는 말풍선과 코드 쪽지를 기준으로 읽으세요.</p><details><summary>자료와 제작 기록</summary><p>폴더에 존재하는 ch02~ch08을 모두 다룹니다. ch01은 없으며, 빈 실습 파일과 미완성 TODO는 해당 화의 원작 코드 안내에 구분했습니다. 예시 값의 변화는 코드 독해를 바탕으로 한 설명이며 전체 원본의 실행 결과를 뜻하지 않습니다.</p><ul><li><a href="https://docs.pydantic.dev/latest/concepts/validators/">Pydantic: Validators</a></li><li><a href="https://docs.pydantic.dev/latest/concepts/serialization/">Pydantic: Serialization</a></li><li><a href="https://fastapi.tiangolo.com/tutorial/response-model/">FastAPI: Response Model</a></li><li><a href="image-prompts.txt">삽화 제작 프롬프트</a></li><li><a href="../../glossary/2026-10-21-day6-webtoon.md">학습 기록</a></li></ul><p>브라우저로 이 파일을 열면 인터넷 연결 없이 본문을 읽을 수 있습니다. 외부 참고 자료 링크는 인터넷 연결이 필요합니다.</p></details></footer>
+  </main>
+  <noscript><p>이 웹툰의 회차를 표시하려면 브라우저에서 JavaScript를 활성화해 주세요.</p></noscript>
+</body>
+</html>
