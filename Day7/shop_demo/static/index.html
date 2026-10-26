@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>장바구니 연구소 · 동기와 비동기 실험</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header><a href="/" class="brand"><span class="logo">장</span> 장바구니 연구소</a><span class="tag">DAY 07 · 웹 서비스 실험</span></header>
+  <main>
+    <section class="intro"><div class="eyebrow">작은 쇼핑몰, 다른 기다림</div><h1>같은 조회도,<br>기다리는 방법이 다릅니다.</h1><p>재고, 배송, 리뷰를 불러오는 동안 서버에서는 무슨 일이 일어날까요?<br>세 가지 처리 방식을 직접 실행하고 시간을 비교해 보세요.</p></section>
+    <div class="layout">
+      <section class="panel product"><div class="section-label">01 / 오늘의 상품</div><div class="product-art" aria-label="초록색 데일리 텀블러 일러스트" role="img"><div class="circle"></div><div class="bottle"><div class="lid"></div><span>DAILY<br>FLOW</span></div><span class="art-note">LESS RUSH, MORE FLOW.</span></div><div class="product-info"><span class="eyebrow">DAILY ESSENTIALS</span><h2>데일리 텀블러 500 ml</h2><div class="price">28,000원 <span>포레스트 그린</span></div><p class="muted">구매 전 필요한 정보 3개를 조회합니다.<br>모든 상품 정보는 학습용 예시입니다.</p></div><div id="results" class="results"><div>재고 확인 <span>조회 전</span></div><div>배송 조회 <span>조회 전</span></div><div>리뷰 조회 <span>조회 전</span></div></div></section>
+      <section class="panel experiment"><div class="section-label">02 / 처리 방식 선택</div><div class="modes" role="group" aria-label="조회 방식"><button class="mode active" data-mode="sync" aria-pressed="true"><b>01 동기 · 순차</b><span>하나가 끝나면 다음 조회</span></button><button class="mode" data-mode="async" aria-pressed="false"><b>02 비동기 · 동시</b><span>세 조회의 대기를 함께</span></button><button class="mode" data-mode="blocking" aria-pressed="false"><b>03 서버 막힘</b><span>async 안에 time.sleep</span></button></div><p id="description" class="description"></p><div class="controls"><label for="delay">조회 하나의 대기 시간</label><select id="delay"><option value="0.5">0.5초</option><option value="1" selected>1초</option><option value="2">2초</option></select></div><button id="run" class="primary">상품 정보 조회하기 <span>→</span></button><div class="status-row"><span id="status" role="status" aria-live="polite">실행할 준비가 되었습니다.</span><span id="timer">0.00초</span></div><div class="timeline"><div class="timeline-heading"><h3>서버 처리 타임라인</h3><span id="server-time">측정 대기</span></div><p class="muted small">응답을 받은 뒤 실제 서버 측정값으로 그립니다.</p><div id="timeline"><div class="empty">조회가 끝나면 각 작업의 시작과 종료 시각이 나타납니다.</div></div></div><div class="health"><div><h3>다른 손님의 요청은?</h3><p>조회 중 눌러 보세요. 가벼운 상태 확인 요청을 보냅니다.</p></div><button id="ping">서버 응답 확인</button><p id="ping-result" role="status" aria-live="polite">아직 확인하지 않았습니다.</p></div></section>
+    </div>
+    <section class="panel history"><div class="history-header"><div><div class="section-label">03 / 나의 실험 기록</div><h2>시간을 나란히 비교해 보세요.</h2></div><button id="clear" class="quiet">기록 지우기</button></div><div class="table-scroll"><table><thead><tr><th>방식</th><th>조회당 대기</th><th>서버 처리</th><th>브라우저 왕복</th></tr></thead><tbody id="history"><tr><td colspan="4" class="muted">각 방식을 한 번씩 실행해 보세요.</td></tr></tbody></table></div></section>
+    <section class="notes"><article><span>01</span><h3>순차 처리 ≠ 서버 전체 정지</h3><p>일반 def 경로는 FastAPI의 스레드풀에서 실행됩니다. 한 요청 안에서는 순서대로 기다려도 다른 요청은 처리할 수 있습니다.</p></article><article><span>02</span><h3>await + gather로 대기 겹치기</h3><p>각 조회가 빨라지는 것이 아닙니다. 기다리는 시간을 겹쳐 전체 시간을 줄입니다. async라는 이름만으로 동시 실행되지는 않습니다.</p></article><article><span>03</span><h3>실험은 단일 워커 기준</h3><p>async 경로 안의 time.sleep은 이벤트 루프를 막습니다. 세 번째 모드에서 상태 확인도 늦어지는 이유입니다.</p></article></section>
+  </main><footer>FastAPI · asyncio · time · HTTPX &nbsp; / &nbsp; 실제 결제와 외부 API 연결 없는 로컬 학습 앱</footer>
+</body>
+</html>
