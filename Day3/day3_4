@@ -1,0 +1,21 @@
+#추상 클래스 & 데이터클래스
+
+from abc import ABC, abstractmethod
+class PaymentGateway(ABC):
+    @abstractmethod #추상클래스 
+    def process_payment(self, method:str, item:str, amount:int) -> str:
+        #return f'구매품목 : {item} 수량 : {amount}'     --> 없으면 오류.. 
+        pass #내용 없음
+
+class CreditCardGateway (PaymentGateway):
+    def process_payment(self, item:str, amount:int) -> str:
+        return f'신용카드, 구매품목2 : {item} 수량2 : {amount}'
+
+class BankGateway(PaymentGateway):
+     def process_payment(self, item:str, amount:int) -> str:
+            return f'현금결제, 구매품목3 : {item} 수량3 : {amount}'
+#@abstractmethod 가 들어오면 "Pass" 로 하면 에러. 부모가 없기때문에 아들의 함수를 지정/구체화해줘야함. 
+
+for obj in [CreditCardGateway(), BankGateway()]:
+# obj = BankGateway()
+    print(obj.process_payment('식료품',100), obj.process_payment('과자',200))
