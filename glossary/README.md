@@ -8,6 +8,20 @@
 
 | 날짜 | 분류 | 질문과 답변 | 핵심 용어 |
 | --- | --- | --- | --- |
+| 2026-10-23 | AI, Python, Coding | [FastAPI 4차시: 계약에서 도출한 pytest 테스트](2026-10-23-fastapi-contract-tests.md) | 업무 계약, pytest, TestClient, 경계값, 회귀 |
+| 2026-10-23 | Python, Coding | [Swagger UI와 API 테스트](2026-10-23-swagger-api-test.md) | Swagger UI, API, TestClient, OpenAPI |
+| 2026-10-22 | Python, Coding | [f 문자열 사용법](2026-10-22-python-f-string.md) | f-string, 문자열, 중괄호, 표현식, 서식 |
+| 2026-10-22 | Python, Coding | [웹사이트 무료 배포 서비스와 방법](2026-10-22-free-web-deployment.md) | 배포, 호스팅, GitHub Pages, Netlify, Cloudflare Pages, Vercel, Render |
+| 2026-10-22 | Python, Coding | [웹 주소와 서버 연결: IP, 포트, URL, WWW](2026-10-22-web-address-server.md) | IP, 포트, 서버, URL, WWW, 도메인, DNS |
+| 2026-10-22 | Python, Coding | [HTTPX와 HTTP·HTTPS의 차이](2026-10-22-httpx-http-https.md) | HTTPX, HTTP, HTTPS, 클라이언트, TLS, 비동기 |
+| 2026-10-22 | Python, Coding | [uvicon 명령 인식 오류 해결](2026-10-22-uvicorn-command-error.md) | uvicorn, 오타, 명령 인식 오류, FastAPI |
+| 2026-10-22 | Python, Coding | [파이썬 큰따옴표와 작은따옴표의 차이](2026-10-22-python-quotes.md) | 큰따옴표, 작은따옴표, 문자열, 이스케이프 |
+| 2026-10-22 | Python, Coding | [슬래시와 역슬래시의 차이](2026-10-22-slash-backslash.md) | 슬래시, 역슬래시, URL, 경로, 이스케이프 |
+| 2026-10-22 | Python, Coding | [async와 await의 기능과 사용법](2026-10-22-python-async-await.md) | async, await, asyncio, 코루틴, gather, 비동기 |
+| 2026-10-21 | Python, Coding | [Day_6 코드·문법 종합 정리표](2026-10-21-day6-code-reference.md) | 기초 문법 연결, BaseModel, Field, validator, 중첩 모델, 직렬화, PATCH, FastAPI |
+| 2026-10-21 | Python, Coding | [Day_6 전체 학습 웹툰: 데이터 학교의 신입 개발자](2026-10-21-day6-webtoon.md) | BaseModel, Field, Validator, 중첩 모델, 직렬화, PATCH, FastAPI |
+| 2026-10-21 | Python, Coding | [Enum과 Literal의 차이](2026-10-21-python-enum.md) | Enum, 열거형, Literal, name, value |
+| 2026-10-21 | Python, Coding | [field_validator의 필드 이름 오류 해결](2026-10-21-pydantic-validator-error.md) | field_validator, PydanticUserError, tags, 들여쓰기 |
 | 2026-10-21 | Python, Coding | [Pydantic Field로 입력 조건 정하기](2026-10-21-pydantic-field.md) | Pydantic, Field, 입력 검증, ge, le, pattern |
 | 2026-10-21 | Python, Coding | [bool의 의미](2026-10-21-python-bool.md) | bool, 불리언, True, False, 타입 힌트 |
 | 2026-10-20 | AI, Python, Coding | [부트캠프 학습 계획과 실시간 로그 대시보드](2026-10-20-realtime-log-dashboard.md) | 로그, FastAPI, Supabase, Redis, Streamlit, API, 폴링 |

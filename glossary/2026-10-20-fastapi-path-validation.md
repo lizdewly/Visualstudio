@@ -13,7 +13,7 @@
 | 참고 자료 | [출처 보기](#참고-자료) |
 
 - 최초 기록일: 2026-10-20
-- 수정일: 2026-10-20
+- 수정일: 2026-10-23
 - 분류: Python, Coding
 - 핵심 용어: FastAPI, Annotated, Path, ge, HTTPException, 경로, 404, 422
 
@@ -126,6 +126,24 @@ return tasks[task_id]
 ```
 
 이 경우 뒤의 `return tasks[task_id]`는 실행되지 않는다. 서버 전체가 종료되는 것은 아니며 다른 요청은 계속 처리할 수 있다. `HTTPException`은 `return`이 아니라 `raise`와 함께 사용한다. 상태 코드 404는 응답 본문과 별도의 HTTP 응답 정보다.
+
+### 2026-10-23: `Annotated[int, Path(ge=1)],`을 한국어로 풀면?
+
+질문: `Annotated[int, Path(ge=1)],`을 번역해 달라.
+
+현재 Day8/lesson_02_parameter/main.py의 `item_id` 선언에서는 “URL 경로에서 받는 값이며, 정수이고 1 이상이어야 한다”는 뜻이다.
+
+| 부분 | 의미 |
+| --- | --- |
+| `Annotated` | 타입에 추가 정보를 붙이는 표기 |
+| `int` | 정수 타입 |
+| `Path(...)` | FastAPI의 URL 경로 매개변수 설정 |
+| `ge=1` | greater than or equal to 1, 즉 1 이상 |
+| 마지막 `,` | 함수 매개변수들을 구분하는 쉼표 |
+
+`/items/3`의 item_id는 정수 3으로 변환되어 조건을 통과한다. `/items/0`과 `/items/abc`는 검증에 실패하여 기본적으로 422 응답을 받는다. 이는 현재 코드를 바탕으로 한 예상 동작이며 이번 답변에서 실행하지 않았다. Annotated 자체가 검증을 수행하는 것은 아니며 FastAPI가 이 정보를 이용해 요청을 변환·검증한다.
+
+참고한 파일: [현재 상품 수량 API](../Day8/lesson_02_parameter/main.py).
 
 ## 참고 자료
 
