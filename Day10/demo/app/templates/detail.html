@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }} · note{% endblock %}
+{% block content %}
+<div class="narrow reading-section">
+  <a class="back-link" href="{{ url_for('posts.index', page=page) }}">← 이야기 모음</a>
+  <article><p class="eyebrow">A PAGE FROM OUR JOURNAL</p><h1 class="post-title">{{ post.title }}</h1><div class="post-content">{{ post.content }}</div></article>
+  {% if post.owned %}<div class="owner-actions"><a class="button small outline" href="{{ url_for('posts.edit', post_id=post.id, page=page) }}">이야기 수정</a><form method="post" action="{{ url_for('posts.delete', post_id=post.id) }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="page" value="{{ page }}"><button class="button small outline" type="submit">삭제</button></form></div>{% endif %}
+  <section id="comments" class="comments"><div class="section-heading"><h2>이야기에 덧붙이는 말</h2><span class="comment-count">{{ comments|length }}</span></div>
+    {% if comments %}<ul class="comment-list">{% for comment in comments %}<li><span class="comment-author">{{ comment.nickname }}</span><p>{{ comment.content }}</p></li>{% endfor %}</ul>{% else %}<p class="muted comment-empty">아직 댓글이 없어요. 따뜻한 한마디를 남겨보세요.</p>{% endif %}
+    {% if g.user %}<form method="post" action="{{ url_for('posts.comment', post_id=post.id) }}" class="comment-form"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="page" value="{{ page }}"><div class="field"><label for="comment-content">댓글 남기기</label><textarea id="comment-content" name="content" rows="3" maxlength="2000" required placeholder="당신의 생각도 들려주세요." {% if error %}aria-invalid="true" aria-describedby="comment-error"{% endif %}></textarea>{% if error %}<p class="field-error" id="comment-error" role="alert">{{ error }}</p>{% endif %}</div><div class="form-actions"><button class="button primary" type="submit">댓글 남기기 <span aria-hidden="true">↗</span></button></div></form>
+    {% else %}<div class="login-prompt"><p>로그인하고 대화에 함께하세요.</p><a class="button primary" href="{{ url_for('auth.login') }}">로그인하기 <span aria-hidden="true">↗</span></a></div>{% endif %}
+  </section>
+</div>
+{% endblock %}

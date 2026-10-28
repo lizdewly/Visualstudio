@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}{{ '이야기 수정' if post else '이야기 쓰기' }} · note{% endblock %}
+{% block content %}
+<section class="editor-section narrow">
+  <a class="back-link" href="{{ url_for('posts.detail', post_id=post.id, page=page) if post else url_for('posts.index') }}">← {{ '이야기로 돌아가기' if post else '이야기 모음' }}</a>
+  <p class="eyebrow">{{ 'A SECOND THOUGHT' if post else 'A FRESH PAGE' }}</p>
+  <h1>{{ '조금 더, 나다운 이야기.' if post else '오늘의 한 페이지.' }}</h1>
+  <p class="lead">완벽한 문장보다 당신의 생각이 궁금해요.</p>
+  <form method="post" class="editor-form">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="page" value="{{ page }}">
+    <div class="field"><label for="title">제목</label><input id="title" name="title" maxlength="200" required placeholder="어떤 이야기를 나누고 싶나요?" value="{{ request.form.get('title', post.title_raw if post else '') }}" {% if errors.get('title') %}aria-invalid="true" aria-describedby="title-error"{% endif %}>{% if errors.get('title') %}<p class="field-error" id="title-error">{{ errors.title }}</p>{% endif %}</div>
+    <div class="field"><label for="content">내용</label><textarea id="content" name="content" rows="12" maxlength="20000" required placeholder="떠오르는 생각을 천천히 적어보세요." {% if errors.get('content') %}aria-invalid="true" aria-describedby="content-error"{% endif %}>{{ request.form.get('content', post.content_raw if post else '') }}</textarea>{% if errors.get('content') %}<p class="field-error" id="content-error">{{ errors.content }}</p>{% endif %}</div>
+    <p class="field-hint">서로를 존중하는 문장을 남겨주세요. 일부 표현은 공개 화면에서 가려질 수 있어요.</p>
+    <div class="form-actions"><a class="button outline" href="{{ url_for('posts.detail', post_id=post.id, page=page) if post else url_for('posts.index') }}">취소</a><button class="button primary" type="submit">{{ '수정한 이야기 저장' if post else '이야기 남기기' }} <span aria-hidden="true">↗</span></button></div>
+  </form>
+</section>
+{% endblock %}

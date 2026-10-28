@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}{{ '회원가입' if signup else '로그인' }} · note{% endblock %}
+{% block content %}
+<div class="auth-layout">
+  <section class="auth-intro"><p class="eyebrow">{{ 'A NEW CHAPTER' if signup else 'WELCOME BACK' }}</p><h1>{{ '당신의 이야기를' if signup else '다시, 당신의' }}<br><em>{{ '기다리고 있어요.' if signup else '이야기 속으로.' }}</em></h1><p class="lead">{{ '일상의 작은 조각을 기록하고, 서로의 생각을 나눠보세요.' if signup else '잠시 멈췄던 기록도 괜찮아요. 이어 쓰고 싶은 이야기가 있나요?' }}</p><span class="intro-flower" aria-hidden="true">✳</span></section>
+  <section class="form-card" aria-labelledby="form-title">
+    <p class="eyebrow">YOUR OWN LITTLE SPACE</p><h2 id="form-title">{{ '회원가입' if signup else '로그인' }}</h2>
+    {% if errors.get('form') %}<p class="field-error" role="alert">{{ errors.form }}</p>{% endif %}
+    <form method="post">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <div class="field"><label for="email">이메일</label><input id="email" name="email" type="email" maxlength="254" autocomplete="email" required value="{{ request.form.get('email','') }}" placeholder="you@example.com" {% if errors.get('email') %}aria-invalid="true" aria-describedby="email-error"{% endif %}>{% if errors.get('email') %}<p class="field-error" id="email-error">{{ errors.email }}</p>{% endif %}</div>
+      {% if signup %}<div class="field"><label for="nickname">닉네임</label><input id="nickname" name="nickname" maxlength="30" autocomplete="nickname" required value="{{ request.form.get('nickname','') }}" placeholder="어떤 이름으로 불러드릴까요?" {% if errors.get('nickname') %}aria-invalid="true" aria-describedby="nickname-error"{% endif %}>{% if errors.get('nickname') %}<p class="field-error" id="nickname-error">{{ errors.nickname }}</p>{% endif %}</div>{% endif %}
+      <div class="field"><label for="password">비밀번호</label><input id="password" name="password" type="password" minlength="8" maxlength="128" autocomplete="{{ 'new-password' if signup else 'current-password' }}" required placeholder="8자 이상 입력해 주세요" aria-describedby="password-hint{% if errors.get('password') %} password-error{% endif %}" {% if errors.get('password') %}aria-invalid="true"{% endif %}><p id="password-hint" class="field-hint">8~128자 · 다른 곳에서 쓰지 않는 비밀번호를 사용해 주세요.</p>{% if errors.get('password') %}<p class="field-error" id="password-error">{{ errors.password }}</p>{% endif %}</div>
+      <button class="button primary full" type="submit">{{ '나의 기록 시작하기' if signup else '로그인하기' }} <span aria-hidden="true">↗</span></button>
+    </form>
+    <p class="form-switch">{{ '이미 함께하고 있나요?' if signup else '처음 오셨나요?' }} <a href="{{ url_for('auth.login' if signup else 'auth.signup') }}">{{ '로그인' if signup else '회원가입' }}</a></p>
+  </section>
+</div>
+{% endblock %}

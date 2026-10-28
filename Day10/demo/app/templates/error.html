@@ -1,0 +1,3 @@
+{% extends 'base.html' %}
+{% block title %}{{ code }} · note{% endblock %}
+{% block content %}<section class="error-section"><p class="eyebrow">A SMALL PAUSE · {{ code }}</p><h1>잠시, 한 박자 쉬어가요.</h1><p class="lead">{{ message }}</p><a class="button primary" href="{{ url_for('posts.index') }}">이야기 모음으로 <span aria-hidden="true">↗</span></a></section>{% endblock %}

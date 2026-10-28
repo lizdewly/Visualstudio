@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}표현 관리 · note{% endblock %}
+{% block content %}
+<section class="admin-section narrow"><p class="eyebrow">A THOUGHTFUL COMMUNITY</p><h1>서로를 배려하는<br><em>표현의 기준.</em></h1><p class="lead">등록한 표현은 제목, 내용, 댓글에서 가려집니다.<br>추가·삭제한 규칙은 다음 조회부터 적용돼요.</p>
+<form method="post" class="rule-form form-card"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><div class="field"><label for="keyword">마스킹할 표현</label><input id="keyword" name="keyword" maxlength="100" required placeholder="새 키워드를 입력하세요" {% if error %}aria-invalid="true" aria-describedby="keyword-error"{% endif %}>{% if error %}<p class="field-error" id="keyword-error" role="alert">{{ error }}</p>{% endif %}<p class="field-hint">정규식이 아닌 입력한 문자 그대로 적용됩니다. 최대 500개.</p></div><button class="button primary" type="submit">규칙 추가 <span aria-hidden="true">+</span></button></form>
+<div class="section-heading"><h2>등록된 표현</h2><span class="muted">{{ rules|length }}개</span></div>
+{% if rules %}<ul class="rule-list">{% for rule in rules %}<li><span>{{ rule.keyword }}</span><form method="post" action="{{ url_for('admin.delete', rule_id=rule.id) }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="button small outline" type="submit" aria-label="{{ rule.keyword }} 규칙 삭제">삭제</button></form></li>{% endfor %}</ul>{% else %}<div class="empty-state"><h3>아직 등록된 표현이 없어요.</h3><p>일반 문장을 가리지 않도록 신중하게 추가해 주세요.</p></div>{% endif %}
+</section>
+{% endblock %}

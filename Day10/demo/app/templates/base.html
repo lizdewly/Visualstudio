@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="작은 생각이 오래 머무는 곳, note. 일상의 이야기를 기록하고 나누세요.">
+  <title>{% block title %}note — 생각이 머무는 곳{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+  <script defer src="{{ url_for('static', filename='forms.js') }}"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 바로 가기</a>
+  <header class="site-header shell">
+    <a class="wordmark" href="{{ url_for('posts.index') }}" aria-label="note, 게시글 목록">note<span>.</span></a>
+    <nav aria-label="주 메뉴">
+      <a class="nav-link" href="{{ url_for('posts.index') }}">이야기 모음</a>
+      {% if g.user %}
+        {% if g.user.role == 'ADMIN' %}<a class="nav-link" href="{{ url_for('admin.masking') }}">표현 관리</a>{% endif %}
+        <span class="user-name">{{ g.user.nickname }} 님</span>
+        <form action="{{ url_for('auth.logout') }}" method="post" class="inline-form">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <button class="button small outline" type="submit">로그아웃</button>
+        </form>
+      {% else %}
+        <a class="nav-link" href="{{ url_for('auth.login') }}">로그인</a>
+        <a class="button small outline" href="{{ url_for('auth.signup') }}">함께하기 <span aria-hidden="true">↗</span></a>
+      {% endif %}
+    </nav>
+  </header>
+  <main id="main" class="shell">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}<div class="messages" aria-live="polite">{% for category,message in messages %}<p class="notice {{ category }}">{{ message }}</p>{% endfor %}</div>{% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div><a class="wordmark" href="{{ url_for('posts.index') }}">note.</a><p>작은 기록이 만드는, 더 넓은 일상.</p></div>
+      <div class="footer-end"><span class="eyebrow">A LITTLE SPACE FOR YOUR THOUGHTS</span><p>서로의 이야기를 존중하는 공간</p></div>
+    </div>
+  </footer>
+</body>
+</html>
