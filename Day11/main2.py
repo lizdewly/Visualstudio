@@ -25,14 +25,31 @@ with psycopg.connect(
     )
 
     conn.execute(
-'''
-create table if not exists users(
-  id bigint generated always as identity priary key, 
-  name text not null,
-  email text not null unique
-);
-'''
+    '''
+    create table if not exists users(
+    id bigint generated always as identity primary key, 
+    name text not null,
+    email text not null unique
+    );
+    '''
     )
+    print('테이블 준비완료')
+    #사용자2명 입력
+    users = [
+        ("이순신", "leesunshin@korea.com"), ("홍길동", "honggildong@korea.com")
+    ]
 
-print('테이블 준비완료')
-#사용자3명 입력
+    with conn.cursor() as cur:
+        cur.executemany('''
+            insert into users(name,email)
+            values(%s, %s)
+        ''', users)
+    print('사용자 저장 완료')
+
+    #전체 조회
+    rows = conn.execute('''
+        select id, name, email from users order by id
+    ''').fetchall()
+    for user_id, user_name, user_email in rows:
+        print(user_id, user_name, user_email)
+print('접속 종료')
